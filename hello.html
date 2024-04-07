@@ -5,9 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="hello.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .box{
+            display: grid;
+            grid-template-columns: repeat(10,1fr);
+            gap: 5px;
+        }
+        .circle-2{
+            border: 2px solid black;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            width: 150px;
+            grid-column: 3/4;
+            grid-row: 1/2;
+        }
+        .circle-1{
+            border: 2px solid black;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            width: 150px;
+            grid-column: 6/7;
+        }
+    </style>
 </head>
 <body>
-    <p>hello world</p>
-    <p>new parah</p>
+    <canvas id="canvas"></canvas>
+        <script>
+            function draw() {
+                const canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                    const ctx = canvas.getContext("2d");
+
+                    ctx.beginPath();
+                    ctx.arc(75, 75, 50, 0, Math.PI /2, false); // Outer circle
+                    ctx.fill();
+                }
+            }
+            draw()
+
+        </script>
+    </div>
 </body>
 </html>
